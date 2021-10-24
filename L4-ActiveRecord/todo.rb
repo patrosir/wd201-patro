@@ -12,9 +12,9 @@ class Todo < ActiveRecord::Base
   end
 
   def to_displayable_string
-    display_status = if completed then "[X]" else "[ ]" end
-    display_date = if due_date == Date.today then "" else due_date end
-    "#{id}. #{display_status} #{todo_text} #{display_date}"
+    flag =  if completed then "[X]" else "[ ]" end
+    show_date = if due_date == Date.today then " " else due_date end
+    "#{id}. #{flag} #{todo_text} #{show_date}"
   end
 
   def self.add_task(h)
